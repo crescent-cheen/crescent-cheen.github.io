@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samuel Chen | 关于我</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-top {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    .about-info h2 { margin-bottom: 8px; }
+    .resume-btn { margin-top: 16px; }
+    /* PDF preview modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 6, 13, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #0d0f1e;
+      border: 1px solid rgba(92, 244, 255, 0.3);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 90vw;
+      max-width: 800px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .modal-header span { color: var(--neon1); font-weight: 600; }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 22px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 8px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--text); }
+    .modal-body {
+      flex: 1;
+      overflow: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+    .resume-placeholder {
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 210/297;
+      background: var(--panel);
+      border: 2px dashed rgba(92, 244, 255, 0.3);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      gap: 12px;
+      font-size: 14px;
+      text-align: center;
+      padding: 24px;
+    }
+    .resume-placeholder strong { color: var(--text); font-size: 16px; }
+    @media (max-width: 600px) {
+      .about-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">Samuel Chen</a>
+      <nav>
+        <a href="index.html">首页</a>
+        <a href="about.html" class="active">关于我</a>
+        <a href="works.html">作品集</a>
+        <a href="contact.html">联系我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section>
+      <div class="about-top">
+        <div class="photo-wrap">
+          <img class="photo" src="assets/photo.jpg" alt="Samuel Chen">
+        </div>
+        <div class="about-info">
+          <h2>关于我</h2>
+          <p>市场营销专业，熟悉内容运营与投放逻辑，善于用数据做方向决策与复盘迭代；既能想创意，又能盯执行。</p>
+          <p>莫纳什大学市场营销本科在读，2026.05 毕业。实习经历覆盖百度、网易有道、抖音生态等头部平台。</p>
+          <div class="btn-row resume-btn">
+            <button class="btn" onclick="document.getElementById('resumeModal').classList.add('open')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              预览简历
+            </button>
+            <!-- 如已有 PDF 文件，替换为：<a class="btn" href="resume.pdf" target="_blank">下载简历</a> -->
+            <a class="btn secondary" href="contact.html">联系我</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>教育 & 技能</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>教育背景</h3>
+          <p><strong style="color:var(--text)">莫纳什大学</strong> · 市场营销本科</p>
+          <p>2023.2 – 2026.5</p>
+          <p>主修：市场营销、整合营销传播、统计分析、市场研究方法、商业会计、微观经济学。</p>
+        </div>
+        <div class="card">
+          <h3>核心技能</h3>
+          <p>新媒体与品牌运营、内容策划与脚本、数据复盘与优化、跨部门协同、热点洞察与投放调整。</p>
+          <p>工具：Office / PPT 进阶、Excel 数据分析、视频剪辑 / 3D 基础、Python 入门。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>实习经历</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>百度品牌新媒体增长</h3>
+          <small>品牌运营 · 2024.11 – 2025.02</small>
+          <div class="metrics">
+            <span class="metric">10w+ 曝光</span>
+            <span class="metric">粉丝月增 8%</span>
+            <span class="metric">互动 +40%</span>
+          </div>
+          <p>每周 3–5 篇原创稿/短视频脚本，热点监测与物料迭代，全程盯盘，推动账号持续增长。</p>
+        </div>
+        <div class="card">
+          <h3>网易有道雇主品牌 · 小红书</h3>
+          <small>雇主品牌运营 · 2024.09 – 2024.11</small>
+          <div class="metrics">
+            <span class="metric">播放 2.4W</span>
+            <span class="metric">互动 2443</span>
+            <span class="metric">新增粉 1340</span>
+            <span class="metric">留存 65%</span>
+          </div>
+          <p>搭建内容分层与互动机制，23 份运营报告，4 场专题活动，互动成本 -22%。</p>
+        </div>
+        <div class="card">
+          <h3>抖音生态商家增长项目</h3>
+          <small>市场营销专员 · 2023.07 – 2023.12</small>
+          <div class="metrics">
+            <span class="metric">完播率 +35%</span>
+            <span class="metric">销售额 +40%</span>
+            <span class="metric">单视频引流 10W+</span>
+          </div>
+          <p>KOL 测评 + 场景短视频 + 挑战赛组合；标签组合投放 + 黄金时段发布，转化路径缩至 48h。</p>
+        </div>
+        <div class="card">
+          <h3>Aesop 618 电商整合营销</h3>
+          <small>市场分析 · 2023.11 – 2024.01</small>
+          <div class="metrics">
+            <span class="metric">销售额 +60%</span>
+            <span class="metric">CTR +12%</span>
+          </div>
+          <p>用户画像分析、促销方案构思、场控协同，日更复盘报告，用数据驱动投放优化。</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© Samuel Chen · Sci-fi Portfolio</footer>
+
+  <!-- 简历预览弹窗 -->
+  <div class="modal-overlay" id="resumeModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <div class="modal-header">
+        <span>简历预览</span>
+        <button class="modal-close" onclick="document.getElementById('resumeModal').classList.remove('open')">✕</button>
+      </div>
+      <div class="modal-body">
+        <iframe src="assets/resume.pdf" width="100%" style="height:70vh;border:none;border-radius:8px;"></iframe>
+        <a class="btn secondary" href="assets/resume.pdf" download="陈新岳-简历.pdf" style="margin-top:8px;">下载简历</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

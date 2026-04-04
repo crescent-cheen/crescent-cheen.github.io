@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samuel Chen | 作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .tab {
+      padding: 9px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .tab:hover { color: var(--text); border-color: rgba(92,244,255,0.3); }
+    .tab.active {
+      background: rgba(92,244,255,0.12);
+      border-color: rgba(92,244,255,0.5);
+      color: var(--neon1);
+      box-shadow: 0 0 12px rgba(92,244,255,0.2);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">Samuel Chen</a>
+      <nav>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我</a>
+        <a href="works.html" class="active">作品集</a>
+        <a href="contact.html">联系我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>作品集</h2>
+      <p>按成果类型筛选，点击图片可全屏查看，视频可直接播放。</p>
+
+      <!-- 实习成果总览 PDF -->
+      <div style="margin-bottom:32px;">
+        <h3 style="color:var(--accent);margin-bottom:12px;">实习成果总览</h3>
+        <iframe
+          src="assets/internship.pdf"
+          style="width:100%;height:80vh;border:none;border-radius:14px;background:#000;display:block;"
+          title="实习成果">
+        </iframe>
+        <div style="margin-top:10px;text-align:right;">
+          <a class="btn secondary" href="assets/internship.pdf" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            新标签打开
+          </a>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="image">图片成果</button>
+        <button class="tab" data-tab="video">视频成果</button>
+        <button class="tab" data-tab="text">文字成果</button>
+      </div>
+
+      <!-- ① 图片成果 -->
+      <div class="tab-panel active" id="panel-image">
+        <p style="color:var(--muted);margin-bottom:16px;">网易有道 · 雇主品牌运营 · 2024.09 – 2024.11</p>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-idx="0"><img src="assets/images/img1.png" alt="网易有道 图文成果 1" loading="lazy"></div>
+          <div class="gallery-item" data-idx="1"><img src="assets/images/img2.png" alt="网易有道 图文成果 2" loading="lazy"></div>
+          <div class="gallery-item" data-idx="2"><img src="assets/images/img3.png" alt="网易有道 图文成果 3" loading="lazy"></div>
+          <div class="gallery-item" data-idx="3"><img src="assets/images/img4.png" alt="网易有道 图文成果 4" loading="lazy"></div>
+          <div class="gallery-item" data-idx="4"><img src="assets/images/img5.png" alt="网易有道 图文成果 5" loading="lazy"></div>
+          <div class="gallery-item" data-idx="5"><img src="assets/images/img6.png" alt="网易有道 图文成果 6" loading="lazy"></div>
+          <div class="gallery-item" data-idx="6"><img src="assets/images/img7.png" alt="网易有道 图文成果 7" loading="lazy"></div>
+          <div class="gallery-item" data-idx="7"><img src="assets/images/img8.png" alt="网易有道 图文成果 8" loading="lazy"></div>
+          <div class="gallery-item" data-idx="8"><img src="assets/images/img9.png" alt="网易有道 图文成果 9" loading="lazy"></div>
+          <div class="gallery-item" data-idx="9"><img src="assets/images/img10.png" alt="网易有道 图文成果 10" loading="lazy"></div>
+        </div>
+      </div>
+
+      <!-- ② 视频成果 -->
+      <div class="tab-panel" id="panel-video">
+        <p style="color:var(--muted);margin-bottom:16px;">百度 · 品牌运营 · 2024.11 – 2025.02</p>
+        <div class="video-list">
+          <div class="video-card">
+            <video controls preload="metadata" src="assets/videos/video1.mp4"></video>
+            <div class="video-info">
+              <h3>百度品牌短视频（一）</h3>
+              <p>品牌运营 · 2024.11 – 2025.02 | 原创内容策划与脚本创作，推动账号持续增长，单条最高曝光 10w+。</p>
+              <div class="metrics"><span class="metric">10w+ 曝光</span><span class="metric">粉丝月增 8%</span><span class="metric">互动 +40%</span></div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <video controls preload="metadata" src="assets/videos/video2.mp4"></video>
+            <div class="video-info">
+              <h3>百度品牌短视频（二）</h3>
+              <p>品牌运营 · 2024.11 – 2025.02 | 原创内容策划与脚本创作，热点监测与物料迭代，全程数据追踪。</p>
+              <div class="metrics"><span class="metric">10w+ 曝光</span><span class="metric">粉丝月增 8%</span><span class="metric">互动 +40%</span></div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <video controls preload="metadata" src="assets/videos/video3.mp4"></video>
+            <div class="video-info">
+              <h3>百度品牌短剧</h3>
+              <p>品牌运营 · 2024.11 – 2025.02 | 短剧形式的品牌内容，结合热点进行创意策划与执行。</p>
+              <div class="metrics"><span class="metric">10w+ 曝光</span><span class="metric">粉丝月增 8%</span><span class="metric">互动 +40%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ③ 文字成果 -->
+      <div class="tab-panel" id="panel-text">
+        <p style="color:var(--muted);margin-bottom:16px;">百度 · 品牌运营 · 2024.11 – 2025.02</p>
+        <div class="text-works">
+          <div class="text-work-card">
+            <div class="tw-info">
+              <h3>年度盛典活动脚本</h3>
+              <p>百度品牌运营实习期间独立撰写的大型活动全程脚本，涵盖流程设计、串词与执行说明。</p>
+            </div>
+            <a class="btn" href="assets/script.pdf" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+              查看文档
+            </a>
+          </div>
+
+          <div class="text-work-card">
+            <div class="tw-info">
+              <h3>微信公众号文章（一）</h3>
+              <p>百度品牌运营期间发布的原创公众号内容，点击在微信内阅读完整文章。</p>
+            </div>
+            <a class="btn secondary" href="https://mp.weixin.qq.com/s/tUZ1aU0A4xrUJDQrZBd_hg" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              阅读原文
+            </a>
+          </div>
+
+          <div class="text-work-card">
+            <div class="tw-info">
+              <h3>微信公众号文章（二）</h3>
+              <p>百度品牌运营期间发布的原创公众号内容，点击在微信内阅读完整文章。</p>
+            </div>
+            <a class="btn secondary" href="https://mp.weixin.qq.com/s/Zui4_V0r4p8BvNAbmGuzNw" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              阅读原文
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>© Samuel Chen · Sci-fi Portfolio</footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-prev" onclick="shiftLightbox(-1)">‹</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lb-next" onclick="shiftLightbox(1)">›</button>
+  </div>
+
+  <script>
+    // Tab 切换
+    document.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Lightbox
+    const images = Array.from({length: 10}, (_, i) => `assets/images/img${i+1}.png`);
+    let current = 0;
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => openLightbox(parseInt(item.dataset.idx)));
+    });
+
+    function openLightbox(idx) {
+      current = idx;
+      document.getElementById('lbImg').src = images[idx];
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function shiftLightbox(dir) {
+      current = (current + dir + images.length) % images.length;
+      document.getElementById('lbImg').src = images[current];
+    }
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') shiftLightbox(-1);
+      if (e.key === 'ArrowRight') shiftLightbox(1);
+    });
+  </script>
+</body>
+</html>

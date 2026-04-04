@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samuel Chen | 联系我</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .contact-item {
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .contact-item:hover {
+      border-color: rgba(92,244,255,0.3);
+      box-shadow: 0 0 14px rgba(92,244,255,0.15);
+    }
+    .contact-item strong { display: block; color: var(--neon1); margin-bottom: 6px; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .contact-item span { color: var(--text); font-size: 15px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">Samuel Chen</a>
+      <nav>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我</a>
+        <a href="works.html">作品集</a>
+        <a href="contact.html" class="active">联系我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>联系我</h2>
+      <p>合作、项目或内推交流，欢迎随时联系。</p>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <strong>微信</strong>
+          <span>cxy7668806</span>
+        </div>
+        <div class="contact-item">
+          <strong>邮箱</strong>
+          <span>cxy7668806anx@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <strong>电话</strong>
+          <span>18189551439</span>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn" href="mailto:cxy7668806anx@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          发送邮件
+        </a>
+        <a class="btn secondary" href="about.html">查看简历</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© Samuel Chen · Sci-fi Portfolio</footer>
+</body>
+</html>

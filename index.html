@@ -3,356 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samuel Chen | 个人展示</title>
+  <title>Samuel Chen | 首页</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --bg: #05060d;
-      --panel: rgba(255, 255, 255, 0.05);
-      --panel-strong: rgba(255, 255, 255, 0.08);
-      --grid: rgba(255, 255, 255, 0.06);
-      --text: #e8ecff;
-      --muted: #9eb3ff;
-      --neon1: #5cf4ff;
-      --neon2: #a855f7;
-      --accent: #7cf7b5;
-      --shadow: 0 0 24px rgba(92, 244, 255, 0.35), 0 0 36px rgba(168, 85, 247, 0.25);
-      --radius: 18px;
-      --max-width: 1120px;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Space Grotesk", "Inter", system-ui, -apple-system, sans-serif;
-      color: var(--text);
-      background: radial-gradient(circle at 20% 20%, rgba(92, 244, 255, 0.12), transparent 35%),
-                  radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.14), transparent 40%),
-                  radial-gradient(circle at 50% 80%, rgba(124, 247, 181, 0.12), transparent 45%),
-                  var(--bg);
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(5, 6, 13, 0.75);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .nav {
-      margin: 0 auto;
-      max-width: var(--max-width);
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .brand {
-      font-family: "Orbitron", "Space Grotesk", sans-serif;
-      font-size: 18px;
-      letter-spacing: 0.08em;
-      color: var(--neon1);
-      text-transform: uppercase;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      transition: all 0.2s ease;
-    }
-    nav a:hover {
-      color: var(--text);
-      background: var(--panel);
-      box-shadow: 0 0 12px rgba(92, 244, 255, 0.25);
-    }
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 28px 20px 64px;
-    }
-    .grid-lines::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.05) 70%, transparent 80%);
-      pointer-events: none;
-      z-index: -1;
-    }
-    section {
-      margin-top: 48px;
-      padding: 28px;
-      background: linear-gradient(135deg, var(--panel), rgba(255, 255, 255, 0.03));
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    h1, h2, h3 {
-      margin: 0 0 12px;
-      letter-spacing: 0.01em;
-    }
-    h1 { font-size: clamp(32px, 4vw, 44px); }
-    h2 { font-size: clamp(22px, 3vw, 28px); color: var(--neon1); }
-    h3 { font-size: 18px; color: var(--accent); }
-    p { margin: 0 0 12px; color: var(--muted); }
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 12px;
-      background: rgba(92, 244, 255, 0.12);
-      border: 1px solid rgba(92, 244, 255, 0.4);
-      color: var(--text);
-      font-size: 13px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      background: linear-gradient(120deg, rgba(92, 244, 255, 0.15), rgba(168, 85, 247, 0.2));
-      color: var(--text);
-      text-decoration: none;
-      border: 1px solid rgba(92, 244, 255, 0.4);
-      box-shadow: var(--shadow);
-      transition: all 0.2s ease;
-      font-weight: 600;
-    }
-    .btn:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 0 24px rgba(92, 244, 255, 0.45), 0 0 28px rgba(168, 85, 247, 0.35);
-    }
-    .btn.secondary {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.14);
-      box-shadow: none;
-    }
-    .hero {
+    .hero-layout {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
       align-items: center;
     }
-    .hero-card {
-      padding: 24px;
-      background: var(--panel-strong);
-      border-radius: var(--radius);
-      border: 1px solid rgba(92, 244, 255, 0.25);
-    }
-    .hero-title {
-      font-size: clamp(22px, 2.4vw, 28px);
-      color: var(--text);
-      margin-bottom: 14px;
-    }
+    .hero-text h1 { margin-bottom: 16px; }
     .highlight { color: var(--neon1); }
-    .muted { color: var(--muted); }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 4px; }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      padding: 18px;
-      border-radius: var(--radius);
-      background: var(--panel);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(92, 244, 255, 0.4);
-      box-shadow: 0 0 18px rgba(92, 244, 255, 0.28);
-    }
-    .card small { color: var(--muted); }
-    .work-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 8px 0;
-    }
-    .metric {
-      padding: 6px 10px;
-      border-radius: 10px;
-      background: rgba(168, 85, 247, 0.12);
-      border: 1px solid rgba(168, 85, 247, 0.35);
-      font-size: 13px;
-      color: var(--text);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px;
-    }
-    .contact-item {
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text);
-    }
-    footer {
-      text-align: center;
-      color: var(--muted);
-      padding: 28px 12px 44px;
-      font-size: 13px;
-    }
-    @media (max-width: 880px) {
-      .hero { grid-template-columns: 1fr; }
-      nav { display: flex; gap: 8px; flex-wrap: wrap; }
+    @media (max-width: 640px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .photo-wrap { justify-content: flex-start; }
     }
   </style>
 </head>
-<body class="grid-lines">
+<body>
   <header>
     <div class="nav">
-      <div class="brand">Samuel Chen</div>
+      <a class="brand" href="index.html">Samuel Chen</a>
       <nav>
-        <a href="#hero">首页</a>
-        <a href="#about">关于</a>
-        <a href="#works">作品</a>
-        <a href="#contact">联系</a>
+        <a href="index.html" class="active">首页</a>
+        <a href="about.html">关于我</a>
+        <a href="works.html">作品集</a>
+        <a href="contact.html">联系我</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section id="hero" class="hero">
-      <div>
-        <h1>一个不会 <span class="highlight">vibe coding</span> 的营销学生，不是一个好的猎头。</h1>
-        <p class="muted">市场营销本科在读，2026.05 毕业。擅长新媒体与整合营销，能用数据驱动内容方向，也能把创意落到结果。</p>
-        <div class="pill-row">
-          <span class="tag">新媒体 / 品牌运营</span>
-          <span class="tag">小红书 & 抖音增长</span>
-          <span class="tag">数据复盘</span>
-          <span class="tag">跨部门协同</span>
+    <section>
+      <div class="hero-layout">
+        <div class="hero-text">
+          <h1>一个不会 <span class="highlight">vibe coding</span> 的营销学生，不是一个好的求职者。</h1>
+          <p>市场营销本科在读，2026.05 毕业。擅长新媒体与整合营销，能用数据驱动内容方向，也能把创意落到结果。</p>
+          <div class="pill-row">
+            <span class="tag">新媒体 / 品牌运营</span>
+            <span class="tag">小红书 & 抖音增长</span>
+            <span class="tag">数据复盘</span>
+            <span class="tag">跨部门协同</span>
+          </div>
+          <div class="btn-row">
+            <a class="btn" href="contact.html">联系我</a>
+            <a class="btn secondary" href="works.html">查看作品</a>
+            <a class="btn secondary" href="about.html">了解更多</a>
+          </div>
         </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
-          <a class="btn" href="#contact">联系我</a>
-          <a class="btn secondary" href="#works">查看作品</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-title">快速概览</div>
-        <p class="muted">新媒体与品牌运营实战：公众号/视频号/小红书/抖音。能拆需求、写脚本、盯投放、做复盘。</p>
-        <div class="work-metrics">
-          <div class="metric">10w+ 单条曝光</div>
-          <div class="metric">粉丝月增 8%</div>
-          <div class="metric">互动 +40%</div>
-          <div class="metric">点击率 +12%</div>
-        </div>
-        <p class="muted">跨部门沟通顺畅，执行力强，结果导向。</p>
-      </div>
-    </section>
-
-    <section id="about">
-      <h2>关于我</h2>
-      <p>市场营销专业，熟悉内容运营与投放逻辑，善于用数据做方向决策与复盘迭代；既能想创意，又能盯执行。</p>
-      <div class="cards" style="margin-top:16px;">
-        <div class="card">
-          <h3>教育</h3>
-          <p class="muted">莫纳什大学 · 市场营销本科 (2023.2 – 2026.5)</p>
-          <p class="muted">主修：市场营销、整合营销传播、统计分析、市场研究方法、商业会计、微观经济学等。</p>
-        </div>
-        <div class="card">
-          <h3>核心技能</h3>
-          <p class="muted">新媒体与品牌运营、内容策划与脚本、数据复盘与优化、跨部门协同、热点洞察与投放调整。</p>
-          <p class="muted">工具：Office / PPT 进阶、Excel 基础数据分析、视频剪辑/3D 基础、Python 入门。</p>
+        <div class="photo-wrap">
+          <img class="photo" src="assets/photo.jpg" alt="Samuel Chen">
         </div>
       </div>
     </section>
 
-    <section id="works">
-      <h2>代表作品</h2>
-      <div class="cards" style="margin-top:12px;">
+    <section>
+      <h2>核心数据</h2>
+      <div class="cards">
         <div class="card">
-          <h3>百度品牌新媒体增长</h3>
-          <small>品牌运营 · 2024.11–2025.02</small>
-          <div class="work-metrics">
-            <span class="metric">10w+ 曝光</span>
-            <span class="metric">粉丝月增 8%</span>
-            <span class="metric">互动 +40%</span>
-          </div>
-          <p class="muted">每周 3–5 篇原创稿/短视频脚本，热点监测与物料迭代，全程盯盘，推动账号持续增长。</p>
+          <h3>单条最高曝光</h3>
+          <p style="font-size:32px; font-weight:700; color:var(--neon1); margin:8px 0;">10w+</p>
+          <p>百度品牌账号原创内容</p>
         </div>
         <div class="card">
-          <h3>网易有道雇主品牌 · 小红书</h3>
-          <small>雇主品牌运营 · 2024.09–2024.11</small>
-          <div class="work-metrics">
-            <span class="metric">播放 2.4W</span>
-            <span class="metric">互动 2443</span>
-            <span class="metric">新增粉 1340</span>
-            <span class="metric">留存 65%</span>
-          </div>
-          <p class="muted">搭建内容分层与互动机制，23 份运营报告，4 场专题活动，热点策划 + 数据复盘，互动成本 -22%。</p>
+          <h3>粉丝月增长</h3>
+          <p style="font-size:32px; font-weight:700; color:var(--neon1); margin:8px 0;">8%</p>
+          <p>持续稳定的账号增长</p>
         </div>
         <div class="card">
-          <h3>抖音生态商家增长项目</h3>
-          <small>市场营销专员 · 2023.07–2023.12</small>
-          <div class="work-metrics">
-            <span class="metric">完播率 +35%</span>
-            <span class="metric">销售额 +40%</span>
-            <span class="metric">单视频引流 10W+</span>
-          </div>
-          <p class="muted">KOL 测评 + 场景短视频 + 挑战赛组合；标签组合投放 + 黄金时段发布，缩短转化路径至 48h。</p>
+          <h3>互动率提升</h3>
+          <p style="font-size:32px; font-weight:700; color:var(--neon1); margin:8px 0;">+40%</p>
+          <p>内容策略优化后的成果</p>
         </div>
         <div class="card">
-          <h3>Aesop 618 电商整合营销</h3>
-          <small>市场分析 · 2023.11–2024.01</small>
-          <div class="work-metrics">
-            <span class="metric">销售额 +60%</span>
-            <span class="metric">CTR +12%</span>
-          </div>
-          <p class="muted">用户画像分析、促销方案构思、场控协同，日更复盘报告，用数据驱动投放优化。</p>
+          <h3>销售额增长</h3>
+          <p style="font-size:32px; font-weight:700; color:var(--neon1); margin:8px 0;">+60%</p>
+          <p>Aesop 618 整合营销项目</p>
         </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>联系我</h2>
-      <p class="muted">合作、项目或内推交流，欢迎随时联系。</p>
-      <div class="contact-grid" style="margin-top:12px;">
-        <div class="contact-item"><strong>微信</strong><br>cxy7668806</div>
-        <div class="contact-item"><strong>邮箱</strong><br>cxy7668806anx@gmail.com</div>
-        <div class="contact-item"><strong>电话</strong><br>18189551439</div>
-      </div>
-      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn" href="mailto:cxy7668806anx@gmail.com">发送邮件</a>
-        <a class="btn secondary" href="#hero">回到顶部</a>
       </div>
     </section>
   </main>
 
-  <footer>
-    © Samuel Chen · Sci‑fi Portfolio
-  </footer>
-
-  <script>
-    // 简单平滑滚动
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
+  <footer>© Samuel Chen · Sci-fi Portfolio</footer>
 </body>
 </html>
