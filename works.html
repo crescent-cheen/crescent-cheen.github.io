@@ -56,27 +56,29 @@
       <h2>作品集</h2>
       <p>按成果类型筛选，点击图片可全屏查看，视频可直接播放。</p>
 
-      <!-- 实习成果总览 PDF -->
+      <!-- 实习成果总览 PDF（点击加载，避免拖慢页面） -->
       <div style="margin-bottom:32px;">
         <h3 style="color:var(--accent);margin-bottom:12px;">实习成果总览</h3>
-        <!-- 桌面端内嵌预览 -->
-        <object data="assets/internship.pdf" type="application/pdf"
-          style="width:100%;height:80vh;border:none;border-radius:14px;display:block;"
-          class="pdf-desktop">
-          <!-- 移动端或不支持内嵌时显示按钮 -->
-          <div style="padding:32px;background:var(--panel);border-radius:14px;border:1px solid rgba(255,255,255,0.08);text-align:center;">
-            <p style="margin-bottom:16px;">点击下方按钮查看实习成果总览</p>
-            <a class="btn" href="assets/internship.pdf" target="_blank" rel="noopener">
+        <div id="pdfPlaceholder" style="padding:36px;background:var(--panel);border-radius:14px;border:1px dashed rgba(92,244,255,0.3);text-align:center;">
+          <p style="margin-bottom:16px;">点击下方按钮在页面内预览，或直接新标签打开</p>
+          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+            <button class="btn" onclick="loadPDF()">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-              打开实习成果
+              页面内预览
+            </button>
+            <a class="btn secondary" href="assets/internship.pdf" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              新标签打开
             </a>
           </div>
-        </object>
-        <div style="margin-top:10px;text-align:right;">
-          <a class="btn secondary" href="assets/internship.pdf" target="_blank" rel="noopener">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            新标签打开
-          </a>
+        </div>
+        <div id="pdfEmbed" style="display:none;">
+          <object data="assets/internship.pdf" type="application/pdf"
+            style="width:100%;height:80vh;border:none;border-radius:14px;display:block;">
+          </object>
+          <div style="margin-top:10px;text-align:right;">
+            <a class="btn secondary" href="assets/internship.pdf" target="_blank" rel="noopener">新标签打开</a>
+          </div>
         </div>
       </div>
 
@@ -90,16 +92,16 @@
       <div class="tab-panel active" id="panel-image">
         <p style="color:var(--muted);margin-bottom:16px;">网易有道 · 雇主品牌运营 · 2024.09 – 2024.11</p>
         <div class="gallery-grid">
-          <div class="gallery-item" data-idx="0"><img src="assets/images/img1.png" alt="网易有道 图文成果 1" loading="lazy"></div>
-          <div class="gallery-item" data-idx="1"><img src="assets/images/img2.png" alt="网易有道 图文成果 2" loading="lazy"></div>
-          <div class="gallery-item" data-idx="2"><img src="assets/images/img3.png" alt="网易有道 图文成果 3" loading="lazy"></div>
-          <div class="gallery-item" data-idx="3"><img src="assets/images/img4.png" alt="网易有道 图文成果 4" loading="lazy"></div>
-          <div class="gallery-item" data-idx="4"><img src="assets/images/img5.png" alt="网易有道 图文成果 5" loading="lazy"></div>
-          <div class="gallery-item" data-idx="5"><img src="assets/images/img6.png" alt="网易有道 图文成果 6" loading="lazy"></div>
-          <div class="gallery-item" data-idx="6"><img src="assets/images/img7.png" alt="网易有道 图文成果 7" loading="lazy"></div>
-          <div class="gallery-item" data-idx="7"><img src="assets/images/img8.png" alt="网易有道 图文成果 8" loading="lazy"></div>
-          <div class="gallery-item" data-idx="8"><img src="assets/images/img9.png" alt="网易有道 图文成果 9" loading="lazy"></div>
-          <div class="gallery-item" data-idx="9"><img src="assets/images/img10.png" alt="网易有道 图文成果 10" loading="lazy"></div>
+          <div class="gallery-item" data-idx="0"><img src="assets/images/img1.jpg" alt="网易有道 图文成果 1" loading="lazy"></div>
+          <div class="gallery-item" data-idx="1"><img src="assets/images/img2.jpg" alt="网易有道 图文成果 2" loading="lazy"></div>
+          <div class="gallery-item" data-idx="2"><img src="assets/images/img3.jpg" alt="网易有道 图文成果 3" loading="lazy"></div>
+          <div class="gallery-item" data-idx="3"><img src="assets/images/img4.jpg" alt="网易有道 图文成果 4" loading="lazy"></div>
+          <div class="gallery-item" data-idx="4"><img src="assets/images/img5.jpg" alt="网易有道 图文成果 5" loading="lazy"></div>
+          <div class="gallery-item" data-idx="5"><img src="assets/images/img6.jpg" alt="网易有道 图文成果 6" loading="lazy"></div>
+          <div class="gallery-item" data-idx="6"><img src="assets/images/img7.jpg" alt="网易有道 图文成果 7" loading="lazy"></div>
+          <div class="gallery-item" data-idx="7"><img src="assets/images/img8.jpg" alt="网易有道 图文成果 8" loading="lazy"></div>
+          <div class="gallery-item" data-idx="8"><img src="assets/images/img9.jpg" alt="网易有道 图文成果 9" loading="lazy"></div>
+          <div class="gallery-item" data-idx="9"><img src="assets/images/img10.jpg" alt="网易有道 图文成果 10" loading="lazy"></div>
         </div>
       </div>
 
@@ -227,6 +229,11 @@
       if (e.key === 'ArrowLeft') shiftLightbox(-1);
       if (e.key === 'ArrowRight') shiftLightbox(1);
     });
+
+    function loadPDF() {
+      document.getElementById('pdfPlaceholder').style.display = 'none';
+      document.getElementById('pdfEmbed').style.display = 'block';
+    }
   </script>
 </body>
 </html>
