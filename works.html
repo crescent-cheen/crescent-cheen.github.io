@@ -134,11 +134,18 @@
           <div class="gallery-item" data-idx="8"><img src="assets/images/img9.jpg" alt="网易有道 图文成果 9" loading="lazy"></div>
           <div class="gallery-item" data-idx="9"><img src="assets/images/img10.jpg" alt="网易有道 图文成果 10" loading="lazy"></div>
         </div>
+
+        <p style="color:var(--muted);margin:32px 0 16px;">铭士蓝 · 游戏市场营销 · 2025.03 – 2025.05</p>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-idx="10"><img src="assets/images/game_kungfu_1.png" alt="功夫奇遇记 图文成果 1" loading="lazy"></div>
+          <div class="gallery-item" data-idx="11"><img src="assets/images/game_kungfu_2.png" alt="功夫奇遇记 图文成果 2" loading="lazy"></div>
+          <div class="gallery-item" data-idx="12"><img src="assets/images/game_kungfu_3.png" alt="功夫奇遇记 图文成果 3" loading="lazy"></div>
+        </div>
       </div>
 
       <!-- ② 视频成果 -->
       <div class="tab-panel" id="panel-video">
-        <p style="color:var(--muted);margin-bottom:16px;">百度 · 品牌运营 · 2024.11 – 2025.02</p>
+        <p style="color:var(--muted);margin-bottom:16px;">实习期间产出的视频作品 · 品牌运营 / 游戏市场营销</p>
         <div class="video-list">
           <div class="video-card">
           <div class="video-placeholder" data-src="assets/videos/video1.mp4">
@@ -192,6 +199,19 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 在抖音打开
               </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+          <div class="video-placeholder" data-src="assets/videos/video4.mp4">
+              <div class="vp-play">▶</div>
+              <div class="vp-label">点击播放</div>
+              <div class="vp-size">4.0 MB · 点击后开始加载</div>
+            </div>
+            <div class="video-info">
+              <h3>游戏AI视频 · 功夫奇遇记</h3>
+              <p>铭士蓝 · 游戏市场营销 · 2025.03 – 2025.05 | 独立完成AI视频制作与脚本撰写，用于TapTap社区与短视频平台预热推广。</p>
+              <div class="metrics"><span class="metric">视频增粉 700+</span><span class="metric">TapTap 期待值 9.2</span><span class="metric">测试码 1000+</span></div>
             </div>
           </div>
         </div>
@@ -276,7 +296,7 @@
     });
 
     // Lightbox
-    const images = Array.from({length: 10}, (_, i) => `assets/images/img${i+1}.jpg`);
+    const images = Array.from(document.querySelectorAll('.gallery-item img')).map(img => img.getAttribute('src'));
     let current = 0;
 
     document.querySelectorAll('.gallery-item').forEach(item => {
